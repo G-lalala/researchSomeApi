@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DocusignController;
+use App\Http\Controllers\DocusignExampleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +21,7 @@ Route::get('/', function () {
 
 
 Route::get('/first', [DocusignController::class, 'index']);
+
+Route::get('/docusign', [DocusignController::class, 'authCallback']);
+
+Route::get('/docusign/login', [DocusignExampleController::class, 'login']);
