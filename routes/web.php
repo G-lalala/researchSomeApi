@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DocusignController;
 use App\Http\Controllers\DocusignExampleController;
+use App\Http\Controllers\DocusignSendEnvelopeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +23,6 @@ Route::get('/', function () {
 
 Route::get('/first', [DocusignController::class, 'index']);
 
-Route::get('/docusign', [DocusignController::class, 'authCallback']);
+Route::get('/docusign', [DocusignController::class, 'testTuckerEric']);
 
-Route::get('/docusign/login', [DocusignExampleController::class, 'login']);
+Route::get('/docusign/recipient', [DocusignController::class, 'testAddRecipient']);
