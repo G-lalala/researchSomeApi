@@ -97,7 +97,7 @@ class DocusignController extends BaseController
         ]);
 
         $result = $client->envelopes->createRecipient(
-            '8b53fcd4-aeb0-489f-9933-5c176a6f363f',
+            'XXXXXXXXXXXXXXX--DocusignEnvelopeId',
             $signer
         );
 

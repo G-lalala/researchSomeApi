@@ -14,6 +14,7 @@ use League\OAuth2\Client\Provider\Exception\IdentityProviderException;
 use League\OAuth2\Client\Token\AccessToken;
 use League\OAuth2\Client\Tool\BearerAuthorizationTrait;
 use Psr\Http\Message\ResponseInterface;
+use Illuminate\Support\Facades\Config;
 
 class DocuSign extends AbstractProvider
 {
@@ -102,16 +103,16 @@ class DocuSign extends AbstractProvider
      */
     public function getDefaultScopes(): array
     {
-        if($GLOBALS['EXAMPLES_API_TYPE']['Rooms'] == true){
+        if(Config::get('app.EXAMPLES_API_TYPE.Rooms') == true){
             return [
                 "room_forms dtr.rooms.read dtr.rooms.write dtr.documents.read dtr.documents.write " 
                 . "dtr.profile.read dtr.profile.write dtr.company.read dtr.company.write"
             ];
-        } elseif($GLOBALS['EXAMPLES_API_TYPE']['Click'] == true){
+        } elseif(Config::get('app.EXAMPLES_API_TYPE.Click') == true){
             return [
                 "signature click.manage click.send"
             ];
-        } elseif($GLOBALS['EXAMPLES_API_TYPE']['Admin'] == true) {
+        } elseif(Config::get('app.EXAMPLES_API_TYPE.Admin') == true) {
             return [
                 "signature user_write group_read organization_read permission_read user_read account_read domain_read identity_provider_read"
             ];
